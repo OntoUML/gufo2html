@@ -1,4 +1,5 @@
 import { N3Store, Quad } from 'n3';
+import { DocElement, DocClass, Prefixes } from './types';
 import { getElement } from './helpers';
 
 const N3 = require('n3');

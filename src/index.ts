@@ -1,4 +1,5 @@
 import { Quad } from 'n3';
+import { DocOptions, Prefixes } from './types';
 import { getClasses } from './classes';
 import { getRelations } from './relations';
 import { getAttributes } from './attributes';
@@ -8,12 +9,16 @@ import { getPrefixList } from './helpers';
 
 const N3 = require('n3');
 
-type Prefixes = { [key: string]: string };
+type ReturnProps = {
+  html: string;
+  prefixes: Prefixes;
+  error?: string;
+}
 
 export const transformGUFO2HTML = async (
   gufoStringFile: string,
   options?: DocOptions,
-): Promise<string> => {
+): Promise<ReturnProps> => {
   const { baseIRI, format, documentationProps } = options || {};
   const { title = 'Ontology', description = '', theme: customTheme = {} } =
     documentationProps || {};
@@ -59,7 +64,7 @@ export const transformGUFO2HTML = async (
 
     const template = getHBSTemplate(options);
 
-    return await template({
+    const html = await template({
       title,
       description,
       namespace,
@@ -70,9 +75,9 @@ export const transformGUFO2HTML = async (
       styles,
       theme,
     });
-  } catch (error) {
-    console.log(error);
 
-    return error;
+    return { html, prefixes };
+  } catch (error) {
+    return { html: null, prefixes: null, error };
   }
 };

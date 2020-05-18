@@ -1,3 +1,5 @@
+import { DocTheme } from './types';
+
 const theme: DocTheme = {
   colors: {
     background: '#fff',

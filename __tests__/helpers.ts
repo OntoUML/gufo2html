@@ -1,3 +1,4 @@
+import { Prefixes } from '../src/types';
 import { Quad } from 'n3';
 
 const N3 = require('n3');

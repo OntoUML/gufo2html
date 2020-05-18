@@ -1,6 +1,6 @@
 {
   "name": "gufo2html",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "Javascript library utility for transform gUFO files to HTML.",
   "license": "Apache-2.0",
   "engines": {
@@ -17,9 +17,9 @@
     "format": "prettier --write '**/*.ts' '**/*.json'",
     "format:watch": "onchange '**/*.ts' '**/*.json' -- prettier --write {{changed}}",
     "clean": "rimraf coverage dist tmp",
-    "build": "rm -rf ./dist && npm run build:js && npm run build:types",
-    "build:types": "cp -a ./@types/index.d.ts ./dist/index.d.ts",
+    "build": "rm -rf ./dist && npm run build:tsc",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:tsc": "tsc -p tsconfig.release.json",
     "build:watch": "TS_NODE_FILES=true tsc -w -p tsconfig.release.json",
     "bundle": "webpack",
     "lint": "tslint -c tslint.json -p tsconfig.json 'src/**/*.ts'",

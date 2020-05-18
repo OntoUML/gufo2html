@@ -9,5 +9,5 @@
     "removeComments": true,
     "strict": true
   },
-  "include": ["tmp/**/*", "@types/**/*"]
+  "include": ["src/**/*", "@types/**/*"]
 }

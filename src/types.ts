@@ -1,11 +1,5 @@
-type PartialTemplate = {
-  name: string;
-  partial: string;
-};
 
-type Prefixes = { [key: string]: string };
-
-type DocElement = {
+export type DocElement = {
   comment?: string;
   label?: string;
   name: string;
@@ -14,12 +8,12 @@ type DocElement = {
   uri: string;
 };
 
-type DocRelation = DocElement & {
+export type DocRelation = DocElement & {
   domain: DocElement;
   range: DocElement;
 };
 
-type DocClass = DocElement & {
+export type DocClass = DocElement & {
   disjointWith: DocElement[];
   isDomainOf: DocElement[];
   isRangeOf: DocElement[];
@@ -28,7 +22,7 @@ type DocClass = DocElement & {
   stereotypes: DocElement[];
 };
 
-type DocTheme = {
+export type DocTheme = {
   colors?: {
     background?: string;
     border?: string;
@@ -48,7 +42,7 @@ type DocTheme = {
   };
 };
 
-interface DocOptions {
+export type DocOptions = {
   baseIRI?: string;
   documentationProps?: {
     title?: string;
@@ -68,3 +62,5 @@ interface DocOptions {
   };
   format?: 'Turtle' | 'N-Triples';
 }
+
+export type Prefixes = { [key: string]: string };

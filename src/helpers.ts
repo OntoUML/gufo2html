@@ -1,4 +1,5 @@
 import { N3Store } from 'n3';
+import { DocElement, Prefixes } from './types';
 import { DefaultPrefixes } from './constants';
 
 const N3 = require('n3');

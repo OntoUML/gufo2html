@@ -8,8 +8,6 @@ describe('Classes', () => {
   beforeAll(async () => {
     const { model, prefixes } = await parseModel(classesModel);
     classes = await getClasses(model, prefixes);
-
-    console.log(classes);
   });
 
   it('should generate classes', () => {

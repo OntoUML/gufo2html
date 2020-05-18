@@ -1,4 +1,5 @@
 import Handlebars from 'handlebars';
+import { DocOptions } from './types';
 import attributesPartial from './templates/attributes';
 import bodyPartial from './templates/body';
 import classesPartial from './templates/classes';
@@ -9,6 +10,11 @@ import layoutPartial from './templates/layout';
 import relationsPartial from './templates/relations';
 import stylesPartial from './templates/styles';
 import termsIndexPartial from './templates/terms_index';
+
+type PartialTemplate = {
+  name: string;
+  partial: string;
+};
 
 // === HELPERS ===
 
