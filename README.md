@@ -25,23 +25,23 @@ transformGUFO2HTML(ttlStringModel, options)
 
 ```
 baseIRI?: string;
-  documentationProps?: {
-    title?: string;
-    description?: string[];
-    customPartials?: {
-      headContent?: string;
-      styles?: string;
-      head?: string;
-      body?: string;
-      generalInformation?: string;
-      termsIndex?: string;
-      classes?: string;
-      relations?: string;
-      attributes?: string;
-    };
-    theme?: DocTheme;
+documentationProps?: {
+  title?: string;
+  description?: string[];
+  customPartials?: {
+    headContent?: string;
+    styles?: string;
+    head?: string;
+    body?: string;
+    generalInformation?: string;
+    termsIndex?: string;
+    classes?: string;
+    relations?: string;
+    attributes?: string;
   };
-  format?: string;
+  theme?: DocTheme;
+};
+format?: string;
 ```
 
 ### Theme
