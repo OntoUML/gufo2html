@@ -1,0 +1,79 @@
+{
+  "name": "gufo2html",
+  "version": "0.0.1-alpha.0",
+  "description": "Javascript library utility for transform gUFO files to HTML.",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">= 10.13"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "start": "npm-run-all -p format:watch start:watch",
+    "start:watch": "TS_NODE_FILES=true nodemon index.ts",
+    "format": "prettier --write '**/*.ts' '**/*.json'",
+    "format:watch": "onchange '**/*.ts' '**/*.json' -- prettier --write {{changed}}",
+    "clean": "rimraf coverage dist tmp",
+    "build": "rm -rf ./dist && npm run build:js && npm run build:types",
+    "build:types": "cp -a ./@types/index.d.ts ./dist/index.d.ts",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:watch": "TS_NODE_FILES=true tsc -w -p tsconfig.release.json",
+    "bundle": "webpack",
+    "lint": "tslint -c tslint.json -p tsconfig.json 'src/**/*.ts'",
+    "test": "jest --coverage",
+    "test:clear": "jest --clearCache",
+    "test:watch": "jest --watchAll"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format",
+      "pre-push": "npm run test",
+      "prepublish": "npm run build"
+    }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.3",
+    "@types/n3": "^1.1.5",
+    "ajv": "^6.10.2",
+    "csstype": "^2.6.10",
+    "esm": "^3.2.25",
+    "handlebars": "^4.7.6",
+    "n3": "^1.3.5",
+    "tslib": "~1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10.14.17",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "module-alias": "^2.2.2",
+    "nodemon": "^1.19.4",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "prettier": "~1.18.2",
+    "regenerator-runtime": "^0.13.3",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.6.2",
+    "tslint": "~5.19.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-microsoft-contrib": "~6.2.0",
+    "tsutils": "~3.17.0",
+    "typescript": "~3.6.0",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
+}
