@@ -6,6 +6,7 @@ const theme: DocTheme = {
     border: '#ddd',
     title: '#005a9c',
     text: '#212121',
+    link: '#005a9c'
   },
   shape: {
     borderRadius: '5px',

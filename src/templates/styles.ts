@@ -6,6 +6,7 @@ export default `
     --borderColor: {{theme.colors.border}};
     --titleColor: {{theme.colors.title}};
     --textColor: {{theme.colors.text}};
+    --linkColor: {{theme.colors.link}};
     
     /* === SHAPE === */
     --borderRadius: {{theme.shape.borderRadius}};
@@ -31,6 +32,7 @@ export default `
   }
 
   body {
+    background-color: var(--backgroundColor);
     color: var(--textColor);
     font-family: var(--fontFamily);
     font-size: var(--bodyFontSize);
@@ -53,6 +55,10 @@ export default `
 
   h1, h2, h3, h4, h5 {
     color: var(--titleColor);
+  }
+
+  a {
+    color: var(--linkColor);
   }
 
   {{#styles}}

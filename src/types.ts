@@ -28,6 +28,7 @@ export type DocTheme = {
     border?: string;
     title?: string;
     text?: string;
+    link?: string;
   };
   shape?: {
     borderRadius?: string;
